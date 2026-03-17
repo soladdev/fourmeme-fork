@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import Layout from '@/components/layout/Layout';
 import TokenList from '@/components/tokens/TokenList';
 import SearchFilter from '@/components/ui/SearchFilter';
@@ -27,42 +27,7 @@ const Home: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const { newTokens } = useWebSocket();
 
-  useEffect(() => {
-    console.log('Effect triggered. Current sort:', sort, 'Current page:', currentPage);
-    fetchTokens();
-  }, [currentPage, sort, searchQuery]);
-
-  useEffect(() => {
-    // console.log('New tokens received:', newTokens);
-    if (newTokens.length > 0) {
-      if (showNewTokens) {
-        setTokens(prevTokens => {
-          if (!prevTokens) return null;
-          const newUniqueTokens = newTokens.filter(newToken =>
-            !prevTokens.data.some(existingToken => existingToken.id === newToken.id) &&
-            !displayedNewTokens.some(displayedToken => displayedToken.id === newToken.id)
-          );
-          // console.log('New unique tokens to add:', newUniqueTokens);
-          setDisplayedNewTokens(prev => [...prev, ...newUniqueTokens]);
-          return {
-            ...prevTokens,
-            data: [...newUniqueTokens, ...prevTokens.data],
-            totalCount: prevTokens.totalCount + newUniqueTokens.length
-          };
-        });
-      } else {
-        setNewTokensBuffer(prev => {
-          const uniqueNewTokens = newTokens.filter(newToken =>
-            !prev.some(bufferToken => bufferToken.id === newToken.id)
-          );
-          // console.log('New tokens added to buffer:', uniqueNewTokens);
-          return [...uniqueNewTokens, ...prev];
-        });
-      }
-    }
-  }, [newTokens, showNewTokens]);
-
-  const fetchTokens = async () => {
+  const fetchTokens = useCallback(async () => {
     setIsLoading(true);
     setNoRecentTokens(false);
     setNoLiquidityTokens(false);
@@ -70,7 +35,6 @@ const Home: React.FC = () => {
     let fetchedTokens;
 
     try {
-      // console.log('Fetching tokens...');
       if (searchQuery) {
         fetchedTokens = await searchTokens(searchQuery, currentPage, TOKENS_PER_PAGE);
       } else {
@@ -89,7 +53,7 @@ const Home: React.FC = () => {
             try {
               fetchedTokens = await getTokensWithLiquidity(currentPage, TOKENS_PER_PAGE);
             } catch (liquidityError) {
-              if (liquidityError instanceof Error && 'response' in liquidityError && (liquidityError.response as any).status === 404) {
+              if (liquidityError instanceof Error && 'response' in liquidityError && (liquidityError.response as { status?: number }).status === 404) {
                 setNoLiquidityTokens(true);
                 fetchedTokens = { data: [], totalCount: 0, currentPage: 1, totalPages: 1 };
               } else {
@@ -98,19 +62,12 @@ const Home: React.FC = () => {
             }
             break;
           case 'bomper':
-            fetchedTokens = {
-              data: [],
-              totalCount: 0,
-              currentPage: 1,
-              totalPages: 1
-            };
+            fetchedTokens = { data: [], totalCount: 0, currentPage: 1, totalPages: 1 };
             break;
           default:
             fetchedTokens = await getAllTokens(currentPage, TOKENS_PER_PAGE);
         }
       }
-
-      // console.log('Fetched tokens:', fetchedTokens);
 
       const adjustedTokens: PaginatedResponse<Token | TokenWithLiquidityEvents> = {
         data: fetchedTokens.data || fetchedTokens.tokens || [],
@@ -121,13 +78,42 @@ const Home: React.FC = () => {
       };
 
       setTokens(adjustedTokens);
-    } catch (error) {
-      console.error('Error fetching tokens:', error);
+    } catch (err) {
       setError('Failed to fetch tokens. Please try again later.');
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [currentPage, sort, searchQuery]);
+
+  useEffect(() => {
+    fetchTokens();
+  }, [fetchTokens]);
+
+  useEffect(() => {
+    if (newTokens.length === 0) return;
+    if (showNewTokens) {
+      setTokens(prevTokens => {
+        if (!prevTokens) return null;
+        const newUniqueTokens = newTokens.filter(newToken =>
+          !prevTokens.data.some(existingToken => existingToken.id === newToken.id) &&
+          !displayedNewTokens.some(displayedToken => displayedToken.id === newToken.id)
+        );
+        setDisplayedNewTokens(prev => [...prev, ...newUniqueTokens]);
+        return {
+          ...prevTokens,
+          data: [...newUniqueTokens, ...prevTokens.data],
+          totalCount: prevTokens.totalCount + newUniqueTokens.length
+        };
+      });
+    } else {
+      setNewTokensBuffer(prev => {
+        const uniqueNewTokens = newTokens.filter(newToken =>
+          !prev.some(bufferToken => bufferToken.id === newToken.id)
+        );
+        return [...uniqueNewTokens, ...prev];
+      });
+    }
+  }, [newTokens, showNewTokens]);
 
   const filteredTokens = useMemo(() => {
     if (!tokens || !tokens.data) return [];
@@ -138,26 +124,22 @@ const Home: React.FC = () => {
   }, [tokens, searchQuery]);
 
   const handleSearch = (query: string) => {
-    console.log('Search query updated:', query);
     setSearchQuery(query);
     setCurrentPage(1);
   };
 
   const handleSort = (option: SortOption) => {
-    console.log('Sort option changed:', option);
     setSort(option);
     setCurrentPage(1);
-    setSearchQuery(''); // Clear search query when sorting
+    setSearchQuery('');
   };
 
   const handlePageChange = (page: number) => {
-    console.log('Page changed:', page);
     setCurrentPage(page);
   };
 
   const toggleNewTokens = () => {
     setShowNewTokens(prev => {
-      // console.log('Toggling new tokens. Current state:', prev);
       if (prev) {
         // Turning off
         setTokens(oldTokens => {
@@ -167,7 +149,6 @@ const Home: React.FC = () => {
             data: oldTokens.data.filter(token => !displayedNewTokens.includes(token)),
             totalCount: oldTokens.totalCount - displayedNewTokens.length
           };
-          // console.log('Updated tokens after turning off:', updatedTokens);
           return updatedTokens;
         });
         setNewTokensBuffer(displayedNewTokens);
@@ -181,7 +162,6 @@ const Home: React.FC = () => {
             data: [...newTokensBuffer, ...oldTokens.data],
             totalCount: oldTokens.totalCount + newTokensBuffer.length
           };
-          // console.log('Updated tokens after turning on:', updatedTokens);
           return updatedTokens;
         });
         setDisplayedNewTokens(newTokensBuffer);
@@ -191,12 +171,10 @@ const Home: React.FC = () => {
     });
   };
 
-  // console.log('Rendering component. isLoading:', isLoading, 'tokens:', tokens, 'filteredTokens:', filteredTokens);
-
   return (
     <Layout>
       <SEO
-        title="Create and Trade Memecoins Easily on Bondle."
+        title="Create and Trade Memecoins Easily on Four Meme"
         description="The ultimate platform for launching and trading memecoins on Shibarium. Create your own tokens effortlessly and engage in fair, dynamic trading."
         image="seo/home.jpg"
       />

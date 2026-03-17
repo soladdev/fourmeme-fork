@@ -51,7 +51,7 @@ const TokenList: React.FC<TokenListProps> = ({ tokens, currentPage, totalPages, 
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         {tokens.map((token) => (
-          <TokenCard key={token.id} token={token} isEnded={isEnded} />
+          <TokenCard key={token.id ?? token.address} token={token} isEnded={isEnded} />
         ))}
       </div>
       

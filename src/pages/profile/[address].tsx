@@ -218,7 +218,7 @@ const ProfilePage: React.FC = () => {
   return (
     <Layout>
       <SEO 
-        title={`${addressToUse ? `Profile: ${formatAddressV2(addressToUse)}` : 'Your Profile'} - Bondle`}
+        title={`${addressToUse ? `Profile: ${formatAddressV2(addressToUse)}` : 'Your Profile'} - Four Meme`}
         description={`View token holdings and transactions for ${addressToUse ? formatAddressV2(addressToUse) : 'your account'}.`}
         image="seo/profile.jpg"
       />

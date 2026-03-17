@@ -1,6 +1,6 @@
-# Four Meme Fork UI
+# Four Meme Fork
 
-Four Meme UI is a Next.js-based web application for interacting with the Four Meme platform.
+A Next.js-based web application for creating and trading memecoins on Shibarium. Fork of the [Four Meme](https://four.meme) platform UI.
 
 ## Table of Contents
 
@@ -11,21 +11,20 @@ Four Meme UI is a Next.js-based web application for interacting with the Four Me
 - [Architecture Overview](#architecture-overview)
 - [Environment Variables](#environment-variables)
 - [Available Scripts](#available-scripts)
-- [Dependencies](#dependencies)
-
+- [Contributing](#contributing)
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (version 14 or later)
-- Yarn package manager
+- Node.js (v18 or later recommended)
+- Yarn or npm
 
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/donpushme/fourmeme-fork
+   git clone https://github.com/soladdev/fourmeme-fork
    cd fourmeme-fork
    ```
 
@@ -47,31 +46,45 @@ Four Meme UI is a Next.js-based web application for interacting with the Four Me
 
 ## Architecture Overview
 
-Pump Fun UI is built using the following technologies and frameworks:
+Four Meme Fork is built with:
 
-- Next.js: React framework for server-side rendering and static site generation
-- React: JavaScript library for building user interfaces
-- Tailwind CSS: Utility-first CSS framework for styling
-- Ethers.js: Library for interacting with Ethereum
-- RainbowKit: Ethereum wallet connection library
-- Wagmi: React hooks for EVM chains
-- lightweight-charts: Charting libraries for data visualization
+- **Next.js** — React framework for server-side rendering and static site generation
+- **React** — UI library
+- **Tailwind CSS** — Utility-first styling
+- **Wagmi** — React hooks for EVM chains
+- **RainbowKit** — Wallet connection
+- **Viem** — TypeScript-ready Ethereum interactions
+- **lightweight-charts** — Data visualization
 
-The application follows a component-based architecture, with reusable UI components and hooks for managing state and interactions with the blockchain.
+The app uses a component-based architecture with reusable UI components and hooks for blockchain state and interactions.
 
 ## Environment Variables
 
-Create a `.env.local` file in the root directory with the following variables:
+Create a `.env.local` file in the root directory:
 
-```
-NEXT_PUBLIC_API_BASE_URL=backend-url
-NEXT_PUBLIC_BONDING_CURVE_MANAGER_ADDRESS="contract-address"
-NEXT_PUBLIC_WS_BASE_URL=https://backend-url
+```env
+NEXT_PUBLIC_API_BASE_URL=your-backend-url
+NEXT_PUBLIC_BONDING_CURVE_MANAGER_ADDRESS=your-contract-address
+NEXT_PUBLIC_WS_BASE_URL=wss://your-backend-url
+NEXT_PUBLIC_DOMAIN=https://your-domain.com
 CHAINSAFE_API_KEY=your_chainsafe_api_key
 CHAINSAFE_BUCKET_ID=your_chainsafe_bucket_id
 ```
 
-### 🚀 Looking to build a platform like four.meme?
+## Available Scripts
 
-I've made the UI open-source, but the backend and smart contract are closed-source. If you're interested in creating a full-fledged four.meme-like platform, let's collaborate! [Contact me on Telegram](https://t.me/midaBricoll) for more details.
-I can also provide the fourmeme-fork contract and backend so that you can get the entire set of platform from me.
+| Script | Description |
+|--------|-------------|
+| `yarn dev` | Start development server |
+| `yarn build` | Build for production |
+| `yarn start` | Start production server |
+| `yarn lint` | Run ESLint |
+| `yarn typechain` | Generate contract types from ABIs |
+
+## Contributing
+
+Contributions are welcome. Please open an issue or submit a pull request for any changes.
+
+## License
+
+MIT

@@ -1,5 +1,5 @@
 {
-  "name": "pump-fun-ui",
+  "name": "fourmeme-fork",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typechain": "typechain --target ethers-v5 --out-dir src/types/contracts './src/abis/*.json'"
+    "typechain": "typechain --target ethers-v5 --out-dir src/types/contracts './src/abi/*.json'"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",
@@ -43,14 +43,14 @@
     "@typechain/ethers-v5": "^11.1.2",
     "@types/cookie": "^0.6.0",
     "@types/formidable": "^3.4.5",
-    "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/node": "25.5.0",
+    "@types/react": "19.2.14",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typechain": "^8.3.2",
-    "typescript": "^5"
+    "typescript": "5.9.3"
   }
 }

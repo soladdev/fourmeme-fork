@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between">
           <div className="text-center sm:text-left mb-2 sm:mb-0">
             <p className="text-[10px] sm:text-xs text-gray-400">
-              © {new Date().getFullYear()} Bondle. All rights reserved.
+              © {new Date().getFullYear()} Four Meme Fork. All rights reserved.
             </p>
           </div>
           <nav className="flex space-x-4">
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
             <Link href="/FAQ" className="text-[10px] sm:text-xs text-gray-400 hover:text-white transition-colors">
               FAQ
             </Link>
-            <a href="https://t.me/bondle_xyz" target="_blank" rel="noopener noreferrer" className="text-[10px] sm:text-xs text-gray-400 hover:text-white transition-colors">
+            <a href="https://t.me/fourmeme" target="_blank" rel="noopener noreferrer" className="text-[10px] sm:text-xs text-gray-400 hover:text-white transition-colors">
               Telegram
             </a>
           </nav>

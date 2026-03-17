@@ -15,11 +15,11 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({ title, description, image, token }) => {
   const router = useRouter();
-  const domain = process.env.NEXT_PUBLIC_DOMAIN || 'https://bondle.xyz';
+  const domain = process.env.NEXT_PUBLIC_DOMAIN || 'https://four.meme';
 
   const seo = {
-    title: token ? `${token.name} (${token.symbol}) - Bondle` : title || 'Bondle - Explore and Trade Tokens',
-    description: token?.description || description || 'Explore, create, and trade tokens on the Bondle platform',
+    title: token ? `${token.name} (${token.symbol}) - Four Meme` : title || 'Four Meme - Explore and Trade Tokens',
+    description: token?.description || description || 'Explore, create, and trade tokens on the Four Meme platform',
     image: token?.logo || image || `${domain}/default-og-image.jpg`,
     url: `${domain}${router.asPath}`,
   };

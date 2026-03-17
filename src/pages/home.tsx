@@ -23,8 +23,8 @@ const HomePage: React.FC = () => {
   return (
     <Layout>
       <SEO 
-        title="Bondle - Create and Trade Tokens with Bonding Curves"
-        description="Launch and trade tokens effortlessly using innovative bonding curve technology. Experience fair, dynamic, and continuous liquidity on Bondle."
+        title="Four Meme - Create and Trade Tokens with Bonding Curves"
+        description="Launch and trade tokens effortlessly using innovative bonding curve technology. Experience fair, dynamic, and continuous liquidity on Four Meme."
         image="/seo/home-hero.jpg"
       />
       <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen">
@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                Welcome to Bondle
+                Welcome to Four Meme
               </motion.h1>
               <motion.p 
                 className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-6 sm:mb-8"
@@ -61,7 +61,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-[-1]">
-            <Image src="/images/hero-bg.jpg" alt="Hero background" layout="fill" objectFit="cover" quality={100} />
+            <Image src="/images/hero-bg.jpg" alt="Hero background" fill className="object-cover" quality={100} />
             <div className="absolute inset-0 bg-gray-900 bg-opacity-75"></div>
           </div>
         </section>
@@ -69,7 +69,7 @@ const HomePage: React.FC = () => {
         {/* Features Section */}
         <section className="py-12 sm:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-center text-blue-400 mb-8 sm:mb-12">Why Choose Bondle?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-center text-blue-400 mb-8 sm:mb-12">Why Choose Four Meme?</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               <FeatureCard 
                 icon={CubeTransparentIcon}
@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
         <section className="py-12 sm:py-16">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to revolutionize token trading?</h2>
-            <p className="text-lg sm:text-xl text-gray-400 mb-6 sm:mb-8">Join Bondle today and experience the future of decentralized finance.</p>
+            <p className="text-lg sm:text-xl text-gray-400 mb-6 sm:mb-8">Join Four Meme today and experience the future of decentralized finance.</p>
             <Link href="/explore" className="inline-flex items-center px-6 sm:px-8 py-2 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-full text-gray-900 bg-blue-400 hover:bg-blue-300 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
               Launch Your Token Now
               <ArrowRightIcon className="ml-2 -mr-1 h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />

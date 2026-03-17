@@ -169,4 +169,4 @@ const TokenCard: React.FC<TokenCardProps> = ({ token, isEnded }) => {
   );
 };
 
-export default TokenCard;
+export default React.memo(TokenCard);

@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { WagmiConfig, createConfig, WagmiProvider } from 'wagmi'
+import { WagmiProvider } from 'wagmi'
 import { shibarium } from 'wagmi/chains'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit'
@@ -12,7 +12,7 @@ import { WebSocketProvider } from '@/components/providers/WebSocketProvider';
 
 
 const config = getDefaultConfig({
-  appName: "Pump Fun",
+  appName: "Four Meme Fork",
   projectId: "YOUR_PROJECT_ID",
   chains: [shibarium],
   ssr: true,
@@ -23,7 +23,7 @@ const queryClient = new QueryClient()
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig config={config}>
+    <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
           <WebSocketProvider>
@@ -32,6 +32,6 @@ export default function App({ Component, pageProps }: AppProps) {
         </RainbowKitProvider>
       </QueryClientProvider>
       <ToastContainer />
-    </WagmiConfig>
+    </WagmiProvider>
   )
 }

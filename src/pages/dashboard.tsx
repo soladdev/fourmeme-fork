@@ -204,8 +204,8 @@ const UserDashboard: React.FC = () => {
   return (
     <Layout>
       <SEO 
-        title="Your Token Dashboard - Bondle"
-        description="Manage your tokens and track your transactions in one place. Your personal Bondle dashboard."
+        title="Your Token Dashboard - Four Meme"
+        description="Manage your tokens and track your transactions in one place. Your personal Four Meme dashboard."
         image="seo/dash.jpg"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
