@@ -2,11 +2,19 @@
 
 A Next.js-based web application for creating and trading memecoins on Shibarium. Fork of the [Four Meme](https://four.meme) platform UI.
 
-<img width="1604" height="831" alt="497861953-d8fdc1de-8d16-46d4-a3e7-a508812ab194" src="https://github.com/user-attachments/assets/59334740-db15-4bf7-8dc3-67a56ad44bc5" />
-<img width="1631" height="844" alt="497861878-7b3e9fa1-62cb-4bf4-b28f-9cc7ef7f9215" src="https://github.com/user-attachments/assets/1324f52f-adc2-49ae-bffc-81f3c077f434" />
-<img width="1596" height="732" alt="497861607-fff60975-383c-4178-ab17-8e70842c1dfa" src="https://github.com/user-attachments/assets/d95e869e-6d1c-4d88-b928-4d664d9648c7" />
-<img width="1629" height="908" alt="497861506-49c955b8-45cb-45b0-a6ef-9bfb5383adb1" src="https://github.com/user-attachments/assets/7afb729c-1036-458a-bb29-29fcc9f7b67c" />
-<img width="1894" height="938" alt="497860906-5a7ce8bb-43fc-4b6e-894b-a954f2d2c8c3" src="https://github.com/user-attachments/assets/75c2a4be-2978-4871-97c6-f000c8090487" />
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/59334740-db15-4bf7-8dc3-67a56ad44bc5" width="400"></td>
+    <td><img src="https://github.com/user-attachments/assets/1324f52f-adc2-49ae-bffc-81f3c077f434" width="400"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/d95e869e-6d1c-4d88-b928-4d664d9648c7" width="400"></td>
+    <td><img src="https://github.com/user-attachments/assets/7afb729c-1036-458a-bb29-29fcc9f7b67c" width="400"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/75c2a4be-2978-4871-97c6-f000c8090487" width="400"></td>
+  </tr>
+</table>
 
 
 ## Table of Contents
