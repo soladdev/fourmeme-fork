@@ -12,7 +12,7 @@ A Next.js-based web application for creating and trading memecoins on Shibarium.
     <td><img src="https://github.com/user-attachments/assets/7afb729c-1036-458a-bb29-29fcc9f7b67c" width="400"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/75c2a4be-2978-4871-97c6-f000c8090487" width="400"></td>
+    <td><img src="https://github.com/user-attachments/assets/75c2a4be-2978-4871-97c6-f000c8090487" width="800"></td>
   </tr>
 </table>
 
