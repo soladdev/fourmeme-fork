@@ -4,12 +4,12 @@ A Next.js-based web application for creating and trading memecoins on Shibarium.
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/59334740-db15-4bf7-8dc3-67a56ad44bc5" width="400"></td>
-    <td><img src="https://github.com/user-attachments/assets/1324f52f-adc2-49ae-bffc-81f3c077f434" width="400"></td>
+    <td><img src="https://github.com/user-attachments/assets/59334740-db15-4bf7-8dc3-67a56ad44bc5" width="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/1324f52f-adc2-49ae-bffc-81f3c077f434" width="600"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/d95e869e-6d1c-4d88-b928-4d664d9648c7" width="400"></td>
-    <td><img src="https://github.com/user-attachments/assets/7afb729c-1036-458a-bb29-29fcc9f7b67c" width="400"></td>
+    <td><img src="https://github.com/user-attachments/assets/d95e869e-6d1c-4d88-b928-4d664d9648c7" width="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/7afb729c-1036-458a-bb29-29fcc9f7b67c" width="600"></td>
   </tr>
 </table>
 <img width="1200" height="600" alt="497861953-d8fdc1de-8d16-46d4-a3e7-a508812ab194" src="https://github.com/user-attachments/assets/75c2a4be-2978-4871-97c6-f000c8090487" />
